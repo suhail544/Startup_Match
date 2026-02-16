@@ -432,14 +432,6 @@ npm run lint         # Run ESLint (if configured)
 
 This project is open source and available under the MIT License.
 
----
-
-## Contributors
-
-- **Shafe** - Full-stack development
-
----
-
 ## Support
 
 For issues, questions, or suggestions, please open an issue in the repository or contact the development team.
