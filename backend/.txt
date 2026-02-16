@@ -1,0 +1,41 @@
+EN-IN-Backend/
+│
+├── prisma/
+│   └── schema.prisma               # Prisma schema (models for Entrepreneur, Investor)
+│
+├── src/
+│   ├── config/
+│   │   └── env.ts                  # Environment variable loader
+│   │
+│   ├── controllers/
+│   │   ├── auth.controller.ts      # login/signup logic
+│   │   ├── entrepreneur.controller.ts
+│   │   └── investor.controller.ts
+│   │
+│   ├── middlewares/
+│   │   └── auth.middleware.ts      # JWT protect middleware
+│   │
+│   ├── routes/
+│   │   ├── auth.routes.ts
+│   │   ├── entrepreneur.routes.ts
+│   │   └── investor.routes.ts
+│   │
+│   ├── services/
+│   │   ├── entrepreneur.service.ts # optional: business logic layer
+│   │   └── investor.service.ts
+│   │
+│   ├── utils/
+│   │   ├── jwt.ts                  # token generation & verification
+│   │   └── response.ts             # standard API response helper
+│   │
+│   ├── app.ts                      # Express app configuration
+│   └── server.ts                   # App entry point (starts server)
+│
+├── node_modules/
+│
+├── dist/                           # Compiled JavaScript output (auto-generated)
+│
+├── package.json
+├── tsconfig.json
+├── .env
+└── .gitignore

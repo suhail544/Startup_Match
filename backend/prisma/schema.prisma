@@ -1,0 +1,105 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                  String               @id @default(uuid())
+  email               String               @unique
+  password            String
+  role                Role
+  createdAt           DateTime             @default(now())
+  name                String
+  updatedAt           DateTime             @updatedAt
+  entrepreneurProfile EntrepreneurProfile?
+  investorProfile     InvestorProfile?
+}
+
+model EntrepreneurProfile {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  bio       String?
+  createdAt DateTime @default(now())
+  location  String?
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ideas     Idea[]
+}
+
+model InvestorProfile {
+  id              String             @id @default(uuid())
+  companyName     String
+  investmentRange String
+  userId          String             @unique
+  createdAt       DateTime           @default(now())
+  focusAreas      String             @default("none")
+  updatedAt       DateTime           @updatedAt
+  interests       InvestorInterest[]
+  user            User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  savedIdeas      SavedIdea[]
+}
+
+model Idea {
+  id               String              @id @default(uuid())
+  entrepreneurId   String
+  businessName     String
+  shortDescription String
+  fullDescription  String
+  problemStatement String
+  solution         String
+  targetMarket     String
+  businessModel    String
+  fundingRequired  Int
+  category         String
+  location         String
+  status           IdeaStatus          @default(ACTIVE)
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+  entrepreneur     EntrepreneurProfile @relation(fields: [entrepreneurId], references: [id], onDelete: Cascade)
+  interests        InvestorInterest[]
+  savedBy          SavedIdea[]
+}
+
+model SavedIdea {
+  id         String          @id @default(uuid())
+  investorId String
+  ideaId     String
+  createdAt  DateTime        @default(now())
+  idea       Idea            @relation(fields: [ideaId], references: [id], onDelete: Cascade)
+  investor   InvestorProfile @relation(fields: [investorId], references: [id], onDelete: Cascade)
+
+  @@unique([investorId, ideaId])
+}
+
+model InvestorInterest {
+  id         String          @id @default(uuid())
+  investorId String
+  ideaId     String
+  message    String?
+  status     InterestStatus  @default(PENDING)
+  createdAt  DateTime        @default(now())
+  idea       Idea            @relation(fields: [ideaId], references: [id], onDelete: Cascade)
+  investor   InvestorProfile @relation(fields: [investorId], references: [id], onDelete: Cascade)
+
+  @@unique([investorId, ideaId])
+}
+
+enum Role {
+  ENTREPRENEUR
+  INVESTOR
+}
+
+enum IdeaStatus {
+  ACTIVE
+  CLOSED
+}
+
+enum InterestStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
