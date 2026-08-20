@@ -169,7 +169,7 @@ export const InvestorProfile: React.FC = () => {
                 <Label htmlFor="investmentRange">Investment Range</Label>
                 <Input
                   id="investmentRange"
-                  placeholder="e.g., $100K - $500K"
+                  placeholder="e.g., 10,000rs - 3,00,000rs"
                   value={formData.investmentRange}
                   onChange={(e) => setFormData({ ...formData, investmentRange: e.target.value })}
                   required

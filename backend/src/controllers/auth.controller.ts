@@ -1,8 +1,8 @@
 import { catchAsync } from "../utils/catchAsync";
 import { Request, Response } from "express";
-import { PrismaClient, Role } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import { AppError } from "../utils/appError";
-import { signToken, verifyToken } from "../utils/jwt";
+import { signToken } from "../utils/jwt";
 import bcrypt from "bcrypt";
 import z from "zod";
 const prisma = new PrismaClient();
@@ -28,20 +28,27 @@ export const getAllUsers = catchAsync(async (req: Request, res: Response) => {
     status: "success",
     total: db_data.length,
     data: db_data.map((user) => ({
-  id: user.id,
-  name: user.name,
-  email: user.email,
-  role: user.role
-})),
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    })),
   });
 });
 
 export const signUp = catchAsync(async (req: Request, res: Response) => {
-  const { name, email, password, role } = userSignUpSchema.parse(req.body);
+  let validateData;
+  try {
+    validateData = userSignUpSchema.parse(req.body);
+  } catch (validationError: any) {
+    throw new AppError(validationError.errors[0]?.message || "Validation failed", 400);
+  }
+
+  const { name, email, password, role } = validateData;
 
   const existing = await prisma.user.findUnique({ where: { email } });
   if (existing) {
-    throw new AppError("User already exists", 400);
+    throw new AppError("Email already exists", 400);
   }
 
   const hash = await bcrypt.hash(password, 12);
@@ -72,20 +79,26 @@ export const signUp = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-
 export const login = catchAsync(async (req: Request, res: Response) => {
-  const { email, password } = userLogInSchema.parse(req.body);
+  let validateData;
+  try {
+    validateData = userLogInSchema.parse(req.body);
+  } catch (validationError: any) {
+    throw new AppError(validationError.errors[0]?.message || "Validation failed", 400);
+  }
+
+  const { email, password } = validateData;
 
   const user = await prisma.user.findUnique({ where: { email } });
 
   if (!user) {
-    throw new AppError("Invalid credentials", 401);
+    throw new AppError("Invalid email or password", 401);
   }
 
   const validPassword = await bcrypt.compare(password, user.password);
 
   if (!validPassword) {
-    throw new AppError("Invalid credentials", 401);
+    throw new AppError("Invalid email or password", 401);
   }
 
   const token = signToken({
@@ -104,6 +117,3 @@ export const login = catchAsync(async (req: Request, res: Response) => {
     },
   });
 });
-
-
-

@@ -1,0 +1,20 @@
+{
+  "name": "en-in-prisma",
+  "version": "1.0.0",
+  "description": "A full-stack web application that connects entrepreneurs with investors. Entrepreneurs can showcase their startup ideas, while investors can discover opportunities and express interest in funding innovations.",
+  "homepage": "https://github.com/suhail544/Startup_Match#readme",
+  "bugs": {
+    "url": "https://github.com/suhail544/Startup_Match/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suhail544/Startup_Match.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

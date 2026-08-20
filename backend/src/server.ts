@@ -33,7 +33,7 @@ app.use(
     credentials: true,
   }),
 );
-
+console.log("DB URL:", process.env.DATABASE_URL);
 app.use("/api/idea", ideaRoute);
 app.use("/api/save-idea", savedIdeaRoute);
 app.use("/api/interest", interestRoute);

@@ -1,29 +1,41 @@
-import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { ideasAPI } from '../../services/api';
-import type { Idea } from '../../types';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card';
-import { Input } from '../../components/ui/input';
-import { Textarea } from '../../components/ui/textarea';
-import { Button } from '../../components/ui/button';
-import { Label } from '../../components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
-import { toast } from 'sonner';
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { ideasAPI } from "../../services/api";
+import type { Idea } from "../../types";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../../components/ui/card";
+import { Input } from "../../components/ui/input";
+import { Textarea } from "../../components/ui/textarea";
+import { Button } from "../../components/ui/button";
+import { Label } from "../../components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../../components/ui/select";
+import { toast } from "sonner";
 
 const categories = [
-  'Technology',
-  'Healthcare',
-  'Finance',
-  'Education',
-  'Food & Beverage',
-  'Retail',
-  'Real Estate',
-  'Entertainment',
-  'Transportation',
-  'Other'
+  "Technology",
+  "Healthcare",
+  "Finance",
+  "Education",
+  "Food & Beverage",
+  "Retail",
+  "Real Estate",
+  "Entertainment",
+  "Transportation",
+  "Other",
 ];
 
-const statuses = ['DRAFT', 'PUBLISHED', 'FUNDED'];
+const statuses = ["DRAFT", "PUBLISHED", "FUNDED"];
 
 export const EditIdea: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -31,17 +43,17 @@ export const EditIdea: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [formData, setFormData] = useState({
-    businessName: '',
-    shortDescription: '',
-    fullDescription: '',
-    problemStatement: '',
-    solution: '',
-    targetMarket: '',
-    businessModel: '',
-    fundingRequired: '',
-    category: '',
-    location: '',
-    status: 'DRAFT' as 'DRAFT' | 'PUBLISHED' | 'FUNDED'
+    businessName: "",
+    shortDescription: "",
+    fullDescription: "",
+    problemStatement: "",
+    solution: "",
+    targetMarket: "",
+    businessModel: "",
+    fundingRequired: "",
+    category: "",
+    location: "",
+    status: "DRAFT" as "DRAFT" | "PUBLISHED" | "FUNDED",
   });
 
   useEffect(() => {
@@ -56,19 +68,19 @@ export const EditIdea: React.FC = () => {
       setFormData({
         businessName: idea.businessName,
         shortDescription: idea.shortDescription,
-        fullDescription: idea.fullDescription || '',
-        problemStatement: idea.problemStatement || '',
-        solution: idea.solution || '',
-        targetMarket: idea.targetMarket || '',
-        businessModel: idea.businessModel || '',
+        fullDescription: idea.fullDescription || "",
+        problemStatement: idea.problemStatement || "",
+        solution: idea.solution || "",
+        targetMarket: idea.targetMarket || "",
+        businessModel: idea.businessModel || "",
         fundingRequired: idea.fundingRequired.toString(),
         category: idea.category,
         location: idea.location,
-        status: idea.status
+        status: idea.status,
       });
     } catch (error) {
-      toast.error('Failed to load idea');
-      navigate('/entrepreneur/dashboard');
+      toast.error("Failed to load idea");
+      navigate("/entrepreneur/dashboard");
     } finally {
       setLoading(false);
     }
@@ -79,8 +91,14 @@ export const EditIdea: React.FC = () => {
 
     if (!id) return;
 
-    if (!formData.businessName || !formData.shortDescription || !formData.fundingRequired || !formData.category || !formData.location) {
-      toast.error('Please fill in all required fields');
+    if (
+      !formData.businessName ||
+      !formData.shortDescription ||
+      !formData.fundingRequired ||
+      !formData.category ||
+      !formData.location
+    ) {
+      toast.error("Please fill in all required fields");
       return;
     }
 
@@ -88,12 +106,12 @@ export const EditIdea: React.FC = () => {
     try {
       await ideasAPI.update(id, {
         ...formData,
-        fundingRequired: parseFloat(formData.fundingRequired)
+        fundingRequired: parseFloat(formData.fundingRequired),
       });
-      toast.success('Idea updated successfully');
-      navigate('/entrepreneur/dashboard');
+      toast.success("Idea updated successfully");
+      navigate("/entrepreneur/dashboard");
     } catch (error) {
-      toast.error('Failed to update idea');
+      toast.error("Failed to update idea");
     } finally {
       setSaving(false);
     }
@@ -125,7 +143,9 @@ export const EditIdea: React.FC = () => {
                   id="businessName"
                   placeholder="Enter your business name"
                   value={formData.businessName}
-                  onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, businessName: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -136,7 +156,12 @@ export const EditIdea: React.FC = () => {
                   id="shortDescription"
                   placeholder="A brief overview of your business idea (1-2 sentences)"
                   value={formData.shortDescription}
-                  onChange={(e) => setFormData({ ...formData, shortDescription: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      shortDescription: e.target.value,
+                    })
+                  }
                   rows={3}
                   required
                 />
@@ -148,7 +173,12 @@ export const EditIdea: React.FC = () => {
                   id="fullDescription"
                   placeholder="Detailed description of your business idea"
                   value={formData.fullDescription}
-                  onChange={(e) => setFormData({ ...formData, fullDescription: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      fullDescription: e.target.value,
+                    })
+                  }
                   rows={5}
                 />
               </div>
@@ -159,7 +189,12 @@ export const EditIdea: React.FC = () => {
                   id="problemStatement"
                   placeholder="What problem does your business solve?"
                   value={formData.problemStatement}
-                  onChange={(e) => setFormData({ ...formData, problemStatement: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      problemStatement: e.target.value,
+                    })
+                  }
                   rows={4}
                 />
               </div>
@@ -170,7 +205,9 @@ export const EditIdea: React.FC = () => {
                   id="solution"
                   placeholder="How does your business solve this problem?"
                   value={formData.solution}
-                  onChange={(e) => setFormData({ ...formData, solution: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, solution: e.target.value })
+                  }
                   rows={4}
                 />
               </div>
@@ -181,7 +218,9 @@ export const EditIdea: React.FC = () => {
                   id="targetMarket"
                   placeholder="Who are your target customers?"
                   value={formData.targetMarket}
-                  onChange={(e) => setFormData({ ...formData, targetMarket: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, targetMarket: e.target.value })
+                  }
                   rows={3}
                 />
               </div>
@@ -192,20 +231,29 @@ export const EditIdea: React.FC = () => {
                   id="businessModel"
                   placeholder="How will your business make money?"
                   value={formData.businessModel}
-                  onChange={(e) => setFormData({ ...formData, businessModel: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, businessModel: e.target.value })
+                  }
                   rows={3}
                 />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="fundingRequired">Funding Required ($) *</Label>
+                  <Label htmlFor="fundingRequired">
+                    Funding Required (₹) *
+                  </Label>
                   <Input
                     id="fundingRequired"
                     type="number"
                     placeholder="e.g., 250000"
                     value={formData.fundingRequired}
-                    onChange={(e) => setFormData({ ...formData, fundingRequired: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        fundingRequired: e.target.value,
+                      })
+                    }
                     required
                   />
                 </div>
@@ -214,13 +262,15 @@ export const EditIdea: React.FC = () => {
                   <Label htmlFor="category">Category *</Label>
                   <Select
                     value={formData.category}
-                    onValueChange={(value) => setFormData({ ...formData, category: value })}
+                    onValueChange={(value) =>
+                      setFormData({ ...formData, category: value })
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Select category" />
                     </SelectTrigger>
                     <SelectContent>
-                      {categories.map(category => (
+                      {categories.map((category) => (
                         <SelectItem key={category} value={category}>
                           {category}
                         </SelectItem>
@@ -237,7 +287,9 @@ export const EditIdea: React.FC = () => {
                     id="location"
                     placeholder="e.g., San Francisco, CA"
                     value={formData.location}
-                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, location: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -246,13 +298,18 @@ export const EditIdea: React.FC = () => {
                   <Label htmlFor="status">Status *</Label>
                   <Select
                     value={formData.status}
-                    onValueChange={(value) => setFormData({ ...formData, status: value as 'DRAFT' | 'PUBLISHED' | 'FUNDED' })}
+                    onValueChange={(value) =>
+                      setFormData({
+                        ...formData,
+                        status: value as "DRAFT" | "PUBLISHED" | "FUNDED",
+                      })
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      {statuses.map(status => (
+                      {statuses.map((status) => (
                         <SelectItem key={status} value={status}>
                           {status}
                         </SelectItem>
@@ -264,12 +321,12 @@ export const EditIdea: React.FC = () => {
 
               <div className="flex gap-3 pt-4">
                 <Button type="submit" disabled={saving}>
-                  {saving ? 'Saving...' : 'Save Changes'}
+                  {saving ? "Saving..." : "Save Changes"}
                 </Button>
                 <Button
                   type="button"
                   variant="outline"
-                  onClick={() => navigate('/entrepreneur/dashboard')}
+                  onClick={() => navigate("/entrepreneur/dashboard")}
                 >
                   Cancel
                 </Button>

@@ -1,6 +1,33 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
 build/
-.env
-.env.local
+out/
 .next/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# TypeScript and tooling caches
+*.tsbuildinfo
+.vite/
+coverage/
+
+# Local editor settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

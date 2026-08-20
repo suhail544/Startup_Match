@@ -157,7 +157,7 @@ export const LandingPage: React.FC = () => {
                       <div className="flex items-center text-sm text-gray-600">
                         <DollarSign className="h-4 w-4 mr-2 text-green-600" />
                         <span className="font-semibold">
-                          ${(idea.fundingRequired / 1000).toFixed(0)}K funding required
+                          ₹{(idea.fundingRequired / 1000).toFixed(0)}K funding required
                         </span>
                       </div>
                       <div className="flex items-center text-sm text-gray-600">
@@ -166,7 +166,7 @@ export const LandingPage: React.FC = () => {
                       </div>
                       <div className="pt-2 border-t">
                         <p className="text-xs text-gray-500">
-                          By {idea.entrepreneur.user.name}
+                          By {idea.entrepreneur?.user.name ?? 'Unknown entrepreneur'}
                         </p>
                       </div>
                     </div>

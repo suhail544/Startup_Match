@@ -169,7 +169,7 @@ export const IdeaDetailsPage: React.FC = () => {
                 <div>
                   <p className="text-sm text-gray-500">Funding Required</p>
                   <p className="font-semibold">
-                    ${idea.fundingRequired.toLocaleString()}
+                    ₹{idea.fundingRequired.toLocaleString()}
                   </p>
                 </div>
               </div>

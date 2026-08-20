@@ -162,7 +162,7 @@ export const InvestorDashboard: React.FC = () => {
                       <div className="space-y-2 text-sm text-gray-600">
                         <div className="flex items-center">
                           <DollarSign className="h-4 w-4 mr-2 text-green-600" />
-                          ${(idea.fundingRequired / 1000).toFixed(0)}K
+                          ₹{(idea.fundingRequired / 1000).toFixed(0)}K
                         </div>
                         <div className="flex items-center">
                           <MapPin className="h-4 w-4 mr-2 text-blue-600" />

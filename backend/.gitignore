@@ -1,59 +1,40 @@
-# =========================
-# Node
-# =========================
+# Dependencies
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
 
-# =========================
 # Build output
-# =========================
 dist/
 build/
 out/
 
-# =========================
 # TypeScript
-# =========================
 *.tsbuildinfo
 
-# =========================
 # Environment variables
-# =========================
 .env
 .env.*
 !.env.example
 
-# =========================
-# Prisma
-# =========================
+# Prisma local database files
 prisma/dev.db
 prisma/dev.db-journal
 prisma/*.db
 prisma/*.db-journal
 
-# =========================
 # Logs
-# =========================
 logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# =========================
 # OS files
-# =========================
-.DS_Storegit push -f origin main
-
+.DS_Store
 Thumbs.db
 
-# =========================
-# IDE files
-# =========================
+# Local editor settings
 .vscode/
 .idea/
 
-# =========================
-# Coverage
-# =========================
+# Test coverage
 coverage/
