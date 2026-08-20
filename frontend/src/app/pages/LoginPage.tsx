@@ -81,14 +81,6 @@ export const LoginPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-            <p className="text-sm font-semibold text-blue-900 mb-2">Demo Accounts:</p>
-            <div className="text-xs text-blue-800 space-y-1">
-              <p><strong>Entrepreneur:</strong> sarah@example.com</p>
-              <p><strong>Investor:</strong> michael@example.com</p>
-              <p className="text-blue-600 mt-2">Password: any password works</p>
-            </div>
-          </div>
         </CardContent>
       </Card>
     </div>
