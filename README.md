@@ -9,10 +9,7 @@ A full-stack web application that connects entrepreneurs with investors. Entrepr
 ## Features
 
 ### For Entrepreneurs
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - **Secure Authentication:** Sign up and log in with email/password
 - **Profile Management:** Create and edit your entrepreneur profile with bio and location
 - **Idea Management:** Create, edit, and publish startup ideas with detailed descriptions
@@ -20,10 +17,7 @@ A full-stack web application that connects entrepreneurs with investors. Entrepr
 - **Dashboard:** Overview of total ideas, published ideas, and drafts
 
 ### For Investors
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - **Secure Authentication:** Sign up and log in with email/password
 - **Profile Management:** Create investor profile with company name, investment range, and focus areas
 - **Idea Discovery:** Browse all published startup ideas
@@ -33,10 +27,7 @@ A full-stack web application that connects entrepreneurs with investors. Entrepr
 - **Dashboard:** Quick stats on saved ideas, expressed interests, and available opportunities
 
 ### General Features
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - **Role-Based Access Control:** Protected routes for entrepreneur and investor features
 - **Responsive Design:** Mobile-friendly UI with Tailwind CSS
 - **Real-Time Notifications:** Toast notifications for actions and errors
@@ -47,10 +38,7 @@ A full-stack web application that connects entrepreneurs with investors. Entrepr
 ## Tech Stack
 
 ### Backend
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - **Framework:** Node.js + Express (TypeScript)
 - **ORM:** Prisma
 - **Database:** PostgreSQL
@@ -61,10 +49,7 @@ A full-stack web application that connects entrepreneurs with investors. Entrepr
 - **CORS:** Enabled for development
 
 ### Frontend
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - **Framework:** React 18.3.1 (TypeScript)
 - **Build Tool:** Vite
 - **Routing:** React Router v7
@@ -75,60 +60,12 @@ A full-stack web application that connects entrepreneurs with investors. Entrepr
 - **HTTP Client:** Fetch API with custom wrapper
 
 ---
-
-## Project Structure
-
-```
-EN-IN Prisma/
-├── backend/
-│   ├── src/
-│   │   ├── controllers/        # Business logic for routes
-│   │   │   ├── auth.controller.ts
-│   │   │   ├── entrepreneur/
-│   │   │   ├── investor/
-│   │   ├── routes/             # API route definitions
-│   │   ├── middlewares/        # Auth & error handling
-│   │   ├── types/              # TypeScript interfaces
-│   │   ├── utils/              # JWT, error handling, utilities
-│   │   └── server.ts           # Express app initialization
-│   ├── prisma/
-│   │   ├── schema.prisma       # Database schema
-│   │   └── migrations/         # Database migrations
-│   ├── scripts/
-│   │   └── smoke.ps1           # End-to-end smoke test
-│   ├── package.json
-│   ├── tsconfig.json
-│   └── README.md
-│
-└── frontend/
-    ├── src/
-    │   ├── app/
-    │   │   ├── components/     # Reusable React components
-    │   │   ├── context/        # Auth context provider
-    │   │   ├── layouts/        # Page layouts
-    │   │   ├── pages/          # Route pages
-    │   │   ├── services/       # API client
-    │   │   ├── types/          # TypeScript interfaces
-    │   │   ├── App.tsx
-    │   │   └── routes.tsx      # Route definitions
-    │   ├── main.tsx
-    │   └── styles/             # Global styles
-    ├── index.html
-    ├── package.json
-    ├── vite.config.ts
-    ├── tsconfig.json
-    └── README.md
-```
-
 ---
 
 ## Installation & Setup
 
 ### Prerequisites
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - **Node.js** v18+ and npm
 - **PostgreSQL** database (running locally or remote)
 - **Git**
@@ -136,29 +73,20 @@ EN-IN Prisma/
 ### Backend Setup
 
 1. **Navigate to backend directory:**
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
    ```bash
    cd backend
    ```
 
 2. **Install dependencies:**
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
    ```bash
    npm install
    ```
 
 3. **Configure environment variables:**
    Create a `.env` file in the `backend` directory:
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
    ```env
    DATABASE_URL=postgresql://user:password@localhost:5432/startup_match
    JWT_SECRET=your_jwt_secret_key_here
@@ -167,17 +95,15 @@ EN-IN Prisma/
    ```
 
 4. **Set up the database:**
-<<<<<<< HEAD
 
    ```bash
    npx prisma migrate dev
    ```
 
-=======
+
    ```bash
    npx prisma migrate dev
    ```
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
    This creates the database schema and runs all migrations.
 
 5. **Start the backend server:**
@@ -189,29 +115,20 @@ EN-IN Prisma/
 ### Frontend Setup
 
 1. **Navigate to frontend directory:**
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
    ```bash
    cd frontend
    ```
 
 2. **Install dependencies:**
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
    ```bash
    npm install
    ```
 
 3. **Configure environment variables:**
    Create a `.env` file in the `frontend` directory:
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
    ```env
    VITE_API_URL=http://localhost:3000/api
    ```
@@ -227,33 +144,24 @@ EN-IN Prisma/
 ## Running Both Servers
 
 ### Option 1: Separate Terminals
-<<<<<<< HEAD
 
 **Terminal 1 - Backend:**
 
-=======
 **Terminal 1 - Backend:**
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 ```bash
 cd backend
 npm run dev
 ```
 
 **Terminal 2 - Frontend:**
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 ```bash
 cd frontend
 npm run dev
 ```
 
 ### Option 2: Parallel (from root if using npm workspaces)
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 ```bash
 npm run dev
 ```
@@ -263,27 +171,18 @@ npm run dev
 ## API Documentation
 
 ### Base URL
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 ```
 http://localhost:3000/api
 ```
 
 ### Authentication Routes
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - **POST** `/auth/signup` - Register a new user
 - **POST** `/auth/login` - Log in user
 
 ### Entrepreneur Routes
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - **GET** `/entrepreneur` - Get all entrepreneur profiles
 - **POST** `/entrepreneur` - Create entrepreneur profile (auth required)
 - **GET** `/entrepreneur/me` - Get current user's profile (auth required)
@@ -293,10 +192,7 @@ http://localhost:3000/api
 - **DELETE** `/entrepreneur/:id` - Delete profile (auth required)
 
 ### Investor Routes
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - **GET** `/investor` - Get all investor profiles
 - **POST** `/investor` - Create investor profile (auth required)
 - **GET** `/investor/me` - Get current user's profile (auth required)
@@ -306,10 +202,7 @@ http://localhost:3000/api
 - **DELETE** `/investor/:id` - Delete profile (auth required)
 
 ### Idea Routes
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - **GET** `/idea` - Get all ideas (paginated)
 - **POST** `/idea` - Create idea (auth required, entrepreneur only)
 - **GET** `/idea/:id` - Get idea by ID
@@ -317,19 +210,13 @@ http://localhost:3000/api
 - **DELETE** `/idea/:id` - Delete idea (auth required)
 
 ### Saved Ideas Routes
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - **GET** `/save-idea` - Get saved ideas for authenticated investor (auth required)
 - **POST** `/save-idea` - Save an idea (auth required, investor only)
 - **DELETE** `/save-idea/:id` - Unsave an idea (auth required)
 
 ### Interest Routes
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - **GET** `/interest` - Get interests for authenticated investor (auth required)
 - **POST** `/interest` - Express interest in an idea (auth required, investor only)
 - **PATCH** `/interest/:id` - Update interest status (auth required)
@@ -340,10 +227,7 @@ http://localhost:3000/api
 ## Database Schema
 
 ### User Table
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - `id` (UUID, PK)
 - `name` (String)
 - `email` (String, unique)
@@ -353,10 +237,7 @@ http://localhost:3000/api
 - `updatedAt` (DateTime)
 
 ### EntrepreneurProfile Table
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - `id` (UUID, PK)
 - `userId` (UUID, FK)
 - `bio` (String, optional)
@@ -365,10 +246,7 @@ http://localhost:3000/api
 - `updatedAt` (DateTime)
 
 ### InvestorProfile Table
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - `id` (UUID, PK)
 - `userId` (UUID, FK)
 - `companyName` (String)
@@ -378,10 +256,7 @@ http://localhost:3000/api
 - `updatedAt` (DateTime)
 
 ### Idea Table
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - `id` (UUID, PK)
 - `businessName` (String)
 - `shortDescription` (String)
@@ -399,20 +274,14 @@ http://localhost:3000/api
 - `updatedAt` (DateTime)
 
 ### SavedIdea Table
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - `id` (UUID, PK)
 - `ideaId` (UUID, FK)
 - `investorId` (UUID, FK)
 - `createdAt` (DateTime)
 
 ### Interest Table
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - `id` (UUID, PK)
 - `ideaId` (UUID, FK)
 - `investorId` (UUID, FK)
@@ -426,10 +295,7 @@ http://localhost:3000/api
 ## Key Implementation Details
 
 ### Authentication Flow
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 1. User signs up with email/password
 2. Backend hashes password with bcrypt (12 rounds)
 3. JWT token issued on signup/login (expires in 1 hour, configurable)
@@ -438,26 +304,20 @@ http://localhost:3000/api
 6. Protected routes validate token via `protect` middleware
 
 ### Role-Based Access Control
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - `ProtectedRoute` component checks user role before rendering
 - Routes redirect to `/` if user role doesn't match allowed role
 - Unauthenticated users redirected to `/login`
 
 ### Status Mapping
-<<<<<<< HEAD
 
 Backend stores idea status as `ACTIVE` or `CLOSED`, while frontend displays as `PUBLISHED` or `FUNDED` for better UX. Status mapping handled in API client.
 
 ### Data Type Conversions
 
-=======
 Backend stores idea status as `ACTIVE` or `CLOSED`, while frontend displays as `PUBLISHED` or `FUNDED` for better UX. Status mapping handled in API client.
 
 ### Data Type Conversions
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - `focusAreas`: Backend stores as comma-separated string; frontend converts to array for UI
 - Arrays are joined back to strings on submission
 
@@ -466,7 +326,6 @@ Backend stores idea status as `ACTIVE` or `CLOSED`, while frontend displays as `
 ## Common Issues & Troubleshooting
 
 ### Issue: "Token expired" messages appearing frequently
-<<<<<<< HEAD
 
 **Solution:** Update `EXPIRES_IN` in `backend/src/utils/jwt.ts` to a longer duration (e.g., `7d`)
 
@@ -478,7 +337,6 @@ Backend stores idea status as `ACTIVE` or `CLOSED`, while frontend displays as `
 
 **Solution:**
 
-=======
 **Solution:** Update `EXPIRES_IN` in `backend/src/utils/jwt.ts` to a longer duration (e.g., `7d`)
 
 ### Issue: CORS errors when frontend calls backend
@@ -486,28 +344,21 @@ Backend stores idea status as `ACTIVE` or `CLOSED`, while frontend displays as `
 
 ### Issue: Frontend shows wrong dashboard after login
 **Solution:** 
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 1. Check localStorage `user` object has `role` field
 2. Clear localStorage and re-login to ensure fresh token/user data
 3. Verify AuthContext properly stores and returns user data
 
 ### Issue: Blank pages or 404 errors
-<<<<<<< HEAD
 
 **Solution:**
 
-=======
 **Solution:**
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 1. Ensure backend server is running (`npm run dev` in `/backend`)
 2. Verify frontend `.env` has correct `VITE_API_URL`
 3. Check browser console for API errors
 
 ### Issue: focusAreas.map is not a function
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 **Solution:** Backend returns focusAreas as string; frontend components must split by comma or handle optional chaining
 
 ---
@@ -530,20 +381,14 @@ Backend stores idea status as `ACTIVE` or `CLOSED`, while frontend displays as `
 ## Testing
 
 ### Run Smoke Test (Backend)
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 ```bash
 cd backend
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/smoke.ps1
 ```
 
 This script:
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 1. Registers an entrepreneur
 2. Creates entrepreneur profile
 3. Creates a startup idea
@@ -554,10 +399,7 @@ This script:
 8. Verifies endpoints work
 
 ### Manual Testing
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 1. Open http://localhost:5173
 2. Sign up as Entrepreneur or Investor
 3. Create profile
@@ -569,10 +411,7 @@ This script:
 ## Development Commands
 
 ### Backend
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 ```bash
 npm run dev          # Start with nodemon (auto-reload)
 npm run build        # Build TypeScript
@@ -582,10 +421,7 @@ npx prisma studio   # Open Prisma database UI
 ```
 
 ### Frontend
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 ```bash
 npm run dev          # Start Vite dev server
 npm run build        # Build for production
@@ -598,20 +434,14 @@ npm run lint         # Run ESLint (if configured)
 ## Deployment
 
 ### Backend (Node.js)
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 1. Set production environment variables (DATABASE_URL, JWT_SECRET, etc.)
 2. Build: `npm run build`
 3. Deploy to Heroku, Vercel, Railway, or own server
 4. Run migrations: `npx prisma migrate deploy`
 
 ### Frontend (React/Vite)
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 1. Build: `npm run build`
 2. Deploy `dist/` folder to Vercel, Netlify, or S3 + CloudFront
 3. Set `VITE_API_URL` to production backend URL
@@ -622,7 +452,6 @@ npm run lint         # Run ESLint (if configured)
 
 This project is open source and available under the MIT License.
 
-<<<<<<< HEAD
 ---
 
 ## Contributors
@@ -631,8 +460,7 @@ This project is open source and available under the MIT License.
 
 ---
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
+
 ## Support
 
 For issues, questions, or suggestions, please open an issue in the repository or contact the development team.
@@ -642,10 +470,7 @@ For issues, questions, or suggestions, please open an issue in the repository or
 ## Changelog
 
 ### v1.0.0 (Current)
-<<<<<<< HEAD
 
-=======
->>>>>>> 02e20a951b612c12ff43f4cdb6a0e977bfecb24d
 - Initial release
 - Full authentication and authorization system
 - Entrepreneur profile and idea management
