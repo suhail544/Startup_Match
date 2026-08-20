@@ -18,13 +18,25 @@ const getToken = () =>
 
 async function request(path: string, opts: RequestInit = {}) {
   const url = `${BASE}${path}`;
+
+  console.log("REQUEST URL:", url);
+  console.log("REQUEST OPTIONS:", opts);
+
   const res = await fetch(url, opts);
+
+  console.log("RESPONSE STATUS:", res.status);
+
   const json = await res.json().catch(() => ({}));
+
+  console.log("RESPONSE DATA:", json);
+
   if (!res.ok) {
     const message =
       json?.message || json?.error || res.statusText || "Request failed";
+
     throw new Error(message);
   }
+
   return json;
 }
 

@@ -36,9 +36,9 @@ export const SignupPage: React.FC = () => {
       } else {
         navigate('/investor/profile');
       }
-    } catch (error) {
-      toast.error('Email already exists');
-    } finally {
+    } catch (error: any) {
+  toast.error(error.message || 'Something went wrong');
+} finally {
       setLoading(false);
     }
   };

@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 // DONE
 
 export const saveIdea = catchAsync(async (req: AuthRequest, res: Response) => {
-  const userId = req.user.id;
+  const userId = req.user!.id;
   const { ideaId } = req.body;
 
   if (!userId || !ideaId) {
@@ -40,7 +40,7 @@ export const saveIdea = catchAsync(async (req: AuthRequest, res: Response) => {
 });
 
 export const getIdea = catchAsync(async (req: AuthRequest, res: Response) => {
-  const userId = req.user.id;
+  const userId = req.user!.id;
 
   const investor = await prisma.investorProfile.findUnique({
     where: { userId },
@@ -83,7 +83,7 @@ export const unsaveIdea = catchAsync(
       throw new AppError("SavedIdea id is required", 400);
     }
 
-    const userId = req.user.id;
+    const userId = req.user!.id;
 
     const investor = await prisma.investorProfile.findUnique({
       where: { userId },

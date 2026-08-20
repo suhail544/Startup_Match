@@ -47,7 +47,7 @@ export const getInvestor = catchAsync(async (req: Request, res: Response) => {
 
 export const newInvestor = catchAsync(
   async (req: AuthRequest, res: Response) => {
-    const userId = req.user.id;
+    const userId = req.user!.id;
     const { companyName, investmentRange, focusAreas } = req.body;
 
     if (!companyName) {

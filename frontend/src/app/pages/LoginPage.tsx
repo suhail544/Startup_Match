@@ -27,9 +27,9 @@ export const LoginPage: React.FC = () => {
       const user = await login(email, password);
       toast.success('Login successful');
       navigate(user.role === 'ENTREPRENEUR' ? '/entrepreneur/dashboard' : '/investor/dashboard');
-    } catch (error) {
-      toast.error('Invalid credentials');
-    } finally {
+    } catch (error: any) {
+      toast.error(error.message || 'Something went wrong');
+    }finally {
       setLoading(false);
     }
   };

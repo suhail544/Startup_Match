@@ -111,7 +111,7 @@ export const updateInterestStatus = catchAsync(
       throw new AppError("Interest id is required", 400);
     }
 
-    const userId = req.user.id;
+    const userId = req.user!.id;
 
     const investor = await prisma.investorProfile.findUnique({
       where: { userId },

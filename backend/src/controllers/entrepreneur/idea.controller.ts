@@ -203,7 +203,7 @@ export const deleteIdea = catchAsync(async (req: AuthRequest, res: Response) => 
     throw new AppError("Idea id is required", 400);
   }
 
-  const userId = req.user.id;
+  const userId = req.user!.id;
 
   const entrepreneur = await prisma.entrepreneurProfile.findUnique({
     where: { userId },

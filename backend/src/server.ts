@@ -14,6 +14,11 @@ import { globalErrorHandler } from "./middlewares/error.middleware";
 const app = express();
 const port = 3000;
 app.use(express.json());
+app.use((req, res, next) => {
+  console.log("🔥 INCOMING REQUEST:", req.method, req.url);
+  console.log("BODY:", req.body);
+  next();
+});
 app.use(morgan("dev"));
 const allowedOrigins = (
   process.env.FRONTEND_ORIGINS || "http://localhost:5173,http://localhost:5174"

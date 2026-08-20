@@ -41,8 +41,10 @@ export const signUp = catchAsync(async (req: Request, res: Response) => {
   try {
     validateData = userSignUpSchema.parse(req.body);
   } catch (validationError: any) {
-    throw new AppError(validationError.errors[0]?.message || "Validation failed", 400);
-  }
+ throw new AppError(
+    validationError.issues?.[0]?.message || "Validation failed",
+    400
+  );  }
 
   const { name, email, password, role } = validateData;
 
@@ -81,21 +83,30 @@ export const signUp = catchAsync(async (req: Request, res: Response) => {
 
 export const login = catchAsync(async (req: Request, res: Response) => {
   let validateData;
+
   try {
     validateData = userLogInSchema.parse(req.body);
   } catch (validationError: any) {
-    throw new AppError(validationError.errors[0]?.message || "Validation failed", 400);
+    throw new AppError(
+      validationError.issues?.[0]?.message || "Validation failed",
+      400
+    );
   }
 
   const { email, password } = validateData;
 
-  const user = await prisma.user.findUnique({ where: { email } });
+  const user = await prisma.user.findUnique({
+    where: { email },
+  });
 
   if (!user) {
     throw new AppError("Invalid email or password", 401);
   }
 
-  const validPassword = await bcrypt.compare(password, user.password);
+  const validPassword = await bcrypt.compare(
+    password,
+    user.password
+  );
 
   if (!validPassword) {
     throw new AppError("Invalid email or password", 401);
